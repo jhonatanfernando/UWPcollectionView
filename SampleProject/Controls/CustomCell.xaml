@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:SampleProject.Controls"
+             xmlns:converter="clr-namespace:SampleProject.Converter"
+             mc:Ignorable="d" x:Name="this"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0"
+             x:Class="SampleProject.Controls.CustomCell">
+
+    <Grid.Resources>
+        <ResourceDictionary>
+            <converter:StringIsNotNullOrEmptyConverter x:Key="StringIsNotNullOrEmptyConverter" />
+            <converter:PassengerVIPLevelStringColorConverter x:Key="PassengerVIPLevelStringColorConverter" />
+            <converter:PassengerLevelConverter x:Key="PassengerLevelConverter" />
+            <converter:FlightClassImageConverter x:Key="FlightClassImageConverter" />
+        </ResourceDictionary>
+    </Grid.Resources>
+
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+    </Grid.RowDefinitions>
+
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="70"/>
+        <ColumnDefinition Width="0.16*"/>
+        <ColumnDefinition Width="0.1*"/>
+        <ColumnDefinition Width="0.1*"/>
+        <ColumnDefinition Width="0.15*"/>
+        <ColumnDefinition Width="0.5*"/>
+    </Grid.ColumnDefinitions>
+
+    <controls:BoxedView x:Name="BoxedView1" Sides="false,false,true,true" Sizes="1,1,1,1" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0" Padding="0">
+        <Frame CornerRadius="5"  Padding="0" Margin="10,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource DarkGray}">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="tapEntry" />
+            </Frame.GestureRecognizers>
+
+            <Image Margin="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Aspect="AspectFill">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource"
+                                                            iOS="icon_mainnav_lounge_select.png"
+                                                            Android="icon_mainnav_lounge_select.png"
+                                                            WinPhone="Images/icon_mainnav_lounge_select.png" />
+                </Image.Source>
+            </Image>
+
+        </Frame>
+    </controls:BoxedView>
+
+
+    <controls:BoxedView Grid.Column="1" x:Name="BoxedView2" Sides="false,false,false,true" Sizes="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="5">
+                <Label Text="{Binding FullName}" TextColor="{StaticResource Black}" FontAttributes="Bold" 
+                   VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Start">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="fonts/chsans/CHSans-Regular.ttf#CHSans-Regular" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </StackLayout>
+
+            <!--<Image Grid.Column="0" Source="{Binding LineGroupImage}" Margin="{Binding MarginGroup}" Aspect="AspectFill" 
+               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="5" />-->
+
+        </Grid>
+    </controls:BoxedView>
+
+
+    <controls:BoxedView x:Name="BoxedView3" Sides="false,false,true,true" Sizes="1,1,1,1" Grid.Column="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <Image Grid.Column="1" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  
+               Source="{Binding ClassOfTravel, Converter={StaticResource FlightClassImageConverter}}"  >
+        </Image>
+
+    </controls:BoxedView>
+
+    <controls:BoxedView x:Name="BoxedView4" Sides="false,false,true,true" Sizes="1,1,1,1" Grid.Column="3" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid HeightRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="5" x:Name="gridBoxedView4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Frame CornerRadius="5" Margin="0" Padding="0" BackgroundColor="{Binding StatusType, Converter={StaticResource PassengerLevelConverter}}" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                <Label FontSize="Micro" Text="{Binding LevelCode}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="Black" Margin="5,0,5,0">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="fonts/chsans/CHSans-Regular.ttf#CHSans-Regular" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </Frame>
+            <Frame CornerRadius="5" Margin="0" IsVisible="{Binding VIPLevelCode, Converter={StaticResource StringIsNotNullOrEmptyConverter}}" Padding="0" 
+                   BackgroundColor="{Binding VIPLevelCode, Converter={StaticResource PassengerVIPLevelStringColorConverter}}" 
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                <Label FontSize="Micro" Text="{Binding VIPLevelCode}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                       VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" TextColor="White" Margin="5,0,5,0">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="fonts/chsans/CHSans-Regular.ttf#CHSans-Regular" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </Frame>
+        </Grid>
+    </controls:BoxedView>
+
+    <controls:BoxedView x:Name="BoxedView5" Sides="false,false,true,true" Sizes="1,1,1,1" Grid.Column="4" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Picker x:Name="picker" ItemsSource="{Binding Points}" SelectedItem="{Binding Point}" FontSize="Micro" HorizontalOptions="FillAndExpand" />
+    </controls:BoxedView>
+
+    <controls:BoxedView x:Name="BoxedView6" Sides="false,false,false,true" Sizes="1,1,1,1" Grid.Column="5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <!--<Image x:Name="imgPlay" IsVisible="False" WidthRequest="10" HeightRequest="10" HorizontalOptions="EndAndExpand" Margin="0,0,10,0" >
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource"
+                        iOS="icon_general_arrow_big_right.png"
+                        Android="icon_general_arrow_big_right.png"
+                        WinPhone="Images/icon_general_arrow_big_right.png" />
+            </Image.Source>
+
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Path=TappedCommand, Source={x:Reference this}}" CommandParameter="{Binding Path=PaxTappedCommandParameter, Source={x:Reference this}}" />
+            </Image.GestureRecognizers>
+
+        </Image>-->
+
+    </controls:BoxedView>
+
+</Grid> 

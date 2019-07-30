@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SampleProject.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="Blue">#00aeef</Color>
+            <Color x:Key="DarkBlue">#146176</Color>
+            <Color x:Key="Red">#be1902</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="OffWhite">#f5f4f1</Color>
+            <Color x:Key="Orange">#ffa500</Color>
+
+            <Color x:Key="AppBackgroundColor">#eef2f5</Color>
+            <Color x:Key="AppBackgroundColor1">#fafbfd</Color>
+            <Color x:Key="SepratorColor">#019cff</Color>
+            <Color x:Key="SepratorColor1">#edece8</Color>
+            <Color x:Key="SepratorColor2">#dbdee3</Color>
+            <Color x:Key="SepratorColor3">#f5f4f1</Color>
+            <Color x:Key="MajorFontColor">#56627c</Color>
+            <Color x:Key="MinorFontColor">#56627c</Color>
+            <Color x:Key="HistoryButtonColor">#5db8f1</Color>
+            <Color x:Key="ButtonColor">#7f766e</Color>
+            <Color x:Key="SignoutGrey">#6C6054</Color>
+
+
+            <Color x:Key="Primary">#00aeef</Color>
+            <Color x:Key="Secondary">#fcfcfc</Color>
+            <Color x:Key="Available">#00a400</Color>
+            <Color x:Key="Closed">#8c8e91</Color>
+            <Color x:Key="Occupied">#019cff</Color>
+            <Color x:Key="CleanningRequested">#ffa000</Color>
+            <Color x:Key="Cleanning">#a8afb3</Color>
+            <Color x:Key="WaitingForPAX">#ea22ea</Color>
+            <Color x:Key="Reserved">#663399</Color>
+            <Color x:Key="OutOfOrder">#00030a</Color>
+            <Color x:Key="Background">#8c8e91</Color>
+            <Color x:Key="Disabled">#d3d6db</Color>
+
+            <Color x:Key="Title">#6f6660</Color>
+            <Color x:Key="SubTitle">#faf9f7</Color>
+            <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="DarkGray">#6f6660</Color>
+            <Color x:Key="MediumGray">#E1DFDA</Color>
+            <Color x:Key="BorderGray">#E1E0DC</Color>
+            <Color x:Key="LightGray">#EEEDE9</Color>
+            <Color x:Key="Green">#757a3e</Color>
+            <!--<Color x:Key="GreenHighlight">#dee2c8</Color>-->
+            <Color x:Key="GreenHighlight">#dce2cb</Color>
+            <Color x:Key="Yellow">#ffc24a</Color>
+
+            <Color x:Key="BarButtonBG">#80766e</Color>
+            <Color x:Key="BarButtonBC">#505050</Color>
+            <Color x:Key="BarButtonHighlighted">#9f9991</Color>
+
+            <Color x:Key="HeaderBG">#FFFFFF</Color>
+            <Color x:Key="GridBG">#DFDDD7</Color>
+
+            <!--New Colors-->
+            <Color x:Key="LightGrayBG">#f5f4f2</Color>
+            <Color x:Key="LightGrayBG1">#faf9f8</Color>
+            <Color x:Key="LightGrayBG2">#e2e0db</Color>
+            <Color x:Key="LightGrayBG3">#d7d4cd</Color>
+            <Color x:Key="DarkGray1">#45403d</Color>
+            <Color x:Key="Black1">#363636</Color>
+            <Color x:Key="Black2">#383735</Color>
+            <Color x:Key="DarkGrayBG1">#6f665f</Color>
+            <Color x:Key="SeparatorLS">#ebe9e6</Color>
+            <Color x:Key="ButtonLoginD">#d68377</Color>
+            <Color x:Key="ButtonLoginE">#D8be1902</Color>
+            <Color x:Key="TextButtonLogin">#ecc7c3</Color>
+            <Color x:Key="LineSystemBar">#d6d3cc</Color>
+            <Color x:Key="LightRed">#f2dede</Color>
+            <Color x:Key="LabelColor">#393939</Color>
+            <Color x:Key="LabelColor1">#6f6660</Color>
+            <Color x:Key="LabelColor2">#c3c3c3</Color>
+            <Color x:Key="ArrivalYellow">#e1c24a</Color>
+            <Color x:Key="ArrivalRed">#ab3b35</Color>
+            <Color x:Key="ArrivalGreen">#9fa371</Color>
+
+            <Color x:Key="BackGroundColorPopup">#000000</Color>
+            <Color x:Key="LineSearchBar">#bab6ae</Color>
+            <!--<Color x:Key="TouchEffectButton">#d3d3d3</Color>-->
+            <Color x:Key="TouchEffectButton">#c1c1c1</Color>
+            <Color x:Key="LineLoginForms">#5A534D</Color>
+
+
+            <Color x:Key="Paxclassbusiness">#3878A1</Color>
+            <Color x:Key="Paxclasseconomy">#757A3E</Color>
+            <Color x:Key="Paxclassfirst">#BE1902</Color>
+
+            <Color x:Key="GreenTouchPoint">#767a3d</Color>
+            <Color x:Key="BGPassengerView">#f5f4f0</Color>
+            <Color x:Key="LineDriving">#c5c3bd</Color>
+
+            <Color x:Key="BGAutoUpdate">#daedf0</Color>
+
+            <Color x:Key="BackGroundColorPopupLastActivity">#80000000</Color>
+
+            <Color x:Key="BackGroundColorLoader">#66FFFFFF</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

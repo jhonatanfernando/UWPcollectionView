@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:SampleProject.Controls"
+             mc:Ignorable="d" Title="CollectionView Sample"
+             x:Class="SampleProject.CollectionViewPage">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <controls:BoxedView Sides="true,true,true,false" Sizes="1,1,1,1"
+                            Grid.Row="0" Margin="20,20,20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <CollectionView x:Name="passengerslistView" ItemsSource="{Binding ObjectBindables}" VerticalOptions="Start" HorizontalOptions="FillAndExpand"
+                                      SelectionMode="None" Margin="0" ItemsLayout="VerticalList" >
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:CustomCell HeightRequest="50" HorizontalOptions="Fill" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </controls:BoxedView>
+
+            <Grid IsVisible="{Binding IsBusy}" BackgroundColor="{StaticResource BackGroundColorLoader}" Margin="20,10,20,0" >
+                <controls:TransparentWebView HeightRequest="80" WidthRequest="80" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="Loader.html" />
+            </Grid>
+
+            <StackLayout IsVisible="{Binding CPHasPaging}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Grid.Row="1" >
+                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Margin="0">
+                    <Button Text="&lt;" FontAttributes="Bold" Command="{Binding CPPreviousPageCommand}" Margin="0,0,10,0" WidthRequest="50" />
+                    <Picker SelectedIndex="{Binding CPCurrentPage, Mode=TwoWay}" ItemsSource="{Binding CPPages, Mode=TwoWay}" TextColor="Black"  HorizontalOptions="FillAndExpand" />
+                    <Button Text="&gt;" FontAttributes="Bold" Command="{Binding CPNextPageCommand}" Margin="10,0,0,0" WidthRequest="50" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
